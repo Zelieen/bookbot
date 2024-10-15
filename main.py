@@ -1,8 +1,15 @@
 def main():
+    path_in = input("Please enter path to yout text file: ")
+    print(type(path_in))
+
+    #path_in = None
+
+    if path_in == None or path_in == "":
+        in_path = "./books/frankenstein.txt"
+        print("Please provide a text file. Have Frankenstein instead:")
+
     print("_START_\n")
 
-    in_path = "./books/frankenstein.txt"
-    
     text = read_text(in_path)
     print(f"{nice_path(in_path)} contained {word_count(text)} words.")
 
