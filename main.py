@@ -1,10 +1,8 @@
 def main():
-    path_in = input("Please enter path to yout text file: ")
-    print(type(path_in))
+    in_path = input("Please enter path to yout text file: ")
 
-    #path_in = None
 
-    if path_in == None or path_in == "":
+    if in_path == None or in_path == "":
         in_path = "./books/frankenstein.txt"
         print("Please provide a text file. Have Frankenstein instead:")
 
