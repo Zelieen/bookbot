@@ -140,6 +140,7 @@ def nice_path(path):
 def try_path(in_path):
     try:
         read_text(in_path)
+        return read_text(in_path)
     except FileNotFoundError:
         print("No such file found. Sorry. Have Frankenstein instead:")
     return read_text("./books/frankenstein.txt")
