@@ -1,14 +1,15 @@
-def main():
-    in_path = input("Please enter path to yout text file: ")
+def main(in_path=None):
+    if in_path == None:
+        in_path = input("Please enter path to your text file: ")
 
 
-    if in_path == None or in_path == "":
+    if in_path == "":
         in_path = "./books/frankenstein.txt"
         print("Please provide a text file. Have Frankenstein instead:")
 
     print("_START_\n")
 
-    text = read_text(in_path)
+    text = try_path(in_path)
     print(f"{nice_path(in_path)} contained {word_count(text)} words.")
 
     print("It had this many letters:")
@@ -136,4 +137,11 @@ def nice_path(path):
     nice_path = path[length-last_slash:length]
     return nice_path
 
-main()
+def try_path(in_path):
+    try:
+        read_text(in_path)
+    except FileNotFoundError:
+        print("No such file found. Sorry. Have Frankenstein instead:")
+    return read_text("./books/frankenstein.txt")
+
+main(None)
